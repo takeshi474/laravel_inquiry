@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+    nginx:
+        image: nginx:1.17.6-alpine
+        ports:
+            - "8182:80"
+        volumes:
+            - "./Docker/web/default.conf:/etc/nginx/conf.d/default.conf"
+            - "./:/var/www/html"
+        depends_on:
+            - phpfpm
+
+    phpfpm:
+        build: ./Docker/php
+        volumes:
+            - "./:/var/www/html"
+        environment:
+            - DB_CONNECTION=pgsql
+            - DB_HOST=postgres
+            - DB_PORT=5432
+            - DB_USERNAME=postgres
+            - DB_PASSWORD=postgres
+            - DB_DATABASE=laravel
+        depends_on:
+            - postgres
+
+    postgres:
+        image: postgres:12.1-alpine
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_HOST=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=laravel
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
+
+volumes:
+    postgres-data:
