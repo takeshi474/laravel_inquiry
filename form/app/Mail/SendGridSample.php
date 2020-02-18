@@ -17,11 +17,12 @@ class SendGridSample extends Mailable
      *
      * @return void
      */
-
+     // 引数で受け取ったデータ用の変数
      protected $contact;
 
     public function __construct($contact)
     {
+        // 引数で受け取ったデータを変数にセット
         $this -> contact = $contact;
     }
 
@@ -33,19 +34,17 @@ class SendGridSample extends Mailable
     public function build()
     {
         return $this
-        ->view('emails.email')
-        ->subject(' MeeTasu')
-        // ->from('yuta.sugawara@meetasu.jp')
-        // ->to(['bbsn03@ezweb.ne.jp'])
-        ->with(['contact' => $this -> contact])
+        ->view('emails.email') //呼び出すテンプレートを指定
+        ->subject('お問い合わせ内容確認') //件名
+        ->with(['contact' => $this -> contact]) //withオプションでセットしたデータをテンプレートに渡す
         ->sendgrid([
-          'personalizations' => [
-            [
-            'subtitutions' => [
-              ':myname' => 'MeeTasu',
-              ]
-            ],
-          ],
+          // 'personalizations' => [
+          //   [
+          //   'subtitutions' => [
+          //     ':myname' => 'Ysg',
+          //     ]
+          //   ],
+          // ],
         ]);
     }
 }

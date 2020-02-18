@@ -29,6 +29,8 @@ class ContactController extends Controller
       $inquiry -> name = $request -> name;
       // メール
       $inquiry -> email = $request -> email;
+      // 画像
+      $inquiry -> image_url = $request -> image_url;
       // 問い合わせ内容
       $inquiry -> post = $request -> post;
       // セッションに保存

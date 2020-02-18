@@ -19,6 +19,7 @@ class CreateInquiryTable extends Migration
             $table -> string('name');
             $table -> string('email');
             $table -> string('post');
+            $table -> string('image_url') -> nullable();
             $table -> timestamps();
         });
     }

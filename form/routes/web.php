@@ -23,5 +23,8 @@ Route::get('/slackTest', function (){
 // メール
 Route::get('mail','Mailcontroller@index');
 Route::post('mail','Mailcontroller@sendmail');
-// Slack
-// Notification::send($inquiry, new Invoicepaid($invoice));
+// CSV
+Route::get('/sample', 'SampleController@index') -> name('index.sample');
+Route::get('/sample/export{keyword?}', 'SampleController@export') -> name('export.sample');
+
+Route::resource('/upload', 'UploadController');

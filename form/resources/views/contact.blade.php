@@ -9,6 +9,8 @@
       <form method="POST" action="{{ route('confirm') }}">
         @csrf
         <fieldset class="mb-4">
+
+          <!-- 名前 -->
           <div class="form-row col-md-2">
             <label for="name">
               お名前
@@ -27,6 +29,7 @@
             @endif
           </div>
 
+          <!-- メール -->
           <div class="form-row col-md-2">
             <label for="email">
               メールアドレス
@@ -45,6 +48,13 @@
               @endif
           </div>
 
+          <!-- 画像 -->
+          <div class="col-md-4">
+            <label>画像投稿</label>
+            <input type="file" id="file" name="file">
+          </div>
+
+          <!-- お問い合わせ内容 -->
           <div class="form-row col-md-2">
             <label for="post">
               お問い合わせ内容
@@ -64,11 +74,13 @@
               @endif
           </div>
 
+          <!-- 確認ボタン -->
           <div class="mt-5">
             <button type="submit" class="btn btn-primary">
               入力内容確認
             </button>
           </div>
+
         </fieldset>
       </form>
     </div>

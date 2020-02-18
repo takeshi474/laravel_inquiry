@@ -28,6 +28,7 @@ class CreateContact extends FormRequest
             'name' => 'required|string|max:40',
             'email' => 'required|email|email:rfc|email:dns',
             'post' => 'required|string|max:400',
+            'image_url' => 'image|nullable',
         ];
     }
 
@@ -38,6 +39,7 @@ class CreateContact extends FormRequest
         'name' => 'お名前',
         'email' => 'メールアドレス',
         'post' => 'お問い合わせ内容',
+        'image_url' => 'image|nullable',
       ];
     }
 }

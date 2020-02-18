@@ -8,6 +8,7 @@ zip \
 unzip \
 vim \
 libpq-dev \
+zlib1g-dev \
 && docker-php-ext-install pdo_pgsql intl
 
 WORKDIR /var/www/html

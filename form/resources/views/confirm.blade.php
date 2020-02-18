@@ -32,6 +32,20 @@
         ></td>
       </tr>
 
+      <p>
+      <tr>
+        <td><label>添付画像</td>
+        <td>{{ $inquiry['file_name'] }}
+        <input
+          class="table-secondary"
+          type="hidden"
+          name="image_url"
+          value="{{ $inquiry['image_url'] }}"
+        ></td>
+      </tr>
+      </p>
+
+
       <tr>
         <td><label>お問い合わせ内容</label></td>
         <td>{!! nl2br(e($inquiry['post'])) !!}
