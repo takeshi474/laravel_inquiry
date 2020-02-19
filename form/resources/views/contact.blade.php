@@ -48,12 +48,6 @@
               @endif
           </div>
 
-          <!-- 画像 -->
-          <div class="col-md-4">
-            <label>画像投稿</label>
-            <input type="file" id="file" name="file">
-          </div>
-
           <!-- お問い合わせ内容 -->
           <div class="form-row col-md-2">
             <label for="post">
